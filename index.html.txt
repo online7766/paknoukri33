@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PakNoukri – Today Government Jobs in Pakistan</title>
+  <meta name="description" content="PakNoukri shares daily government jobs in Pakistan including PPSC, FPSC, NTS, Army, Police, Health and Education jobs.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0056b3;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .top-bar {
+      max-width: 1150px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #0074d9;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .search-bar {
+      background: #ffffff;
+      border-top: 1px solid #eee;
+    }
+
+    .search-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 8px 16px 12px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-inner input {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .search-inner button {
+      padding: 8px 16px;
+      border: none;
+      background: #0074d9;
+      color: #fff;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-inner button:hover {
+      background: #0056b3;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 24px 20px;
+      margin-bottom: 16px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+      color: #444;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #0074d9;
+      color: white;
+      border-color: #0074d9;
+    }
+
+    .btn-primary:hover {
+      background: #0056b3;
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #0074d9;
+      border-color: #0074d9;
+    }
+
+    .btn-outline:hover {
+      background: #f0f8ff;
+    }
+
+    /* Grid blocks */
+    .section-title {
+      font-size: 1.2rem;
+      margin: 20px 0 10px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        font-size: 0.8rem;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 12px 10px;
+      border: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 6px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .card ul li + li {
+      margin-top: 3px;
+    }
+
+    /* Latest jobs list */
+    .latest-jobs {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 14px 12px;
+      border: 1px solid #e0e0e0;
+      margin-top: 4px;
+    }
+
+    .job-item {
+      border-bottom: 1px solid #eee;
+      padding: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    .job-item:last-child {
+      border-bottom: none;
+    }
+
+    .job-title {
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .job-meta {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .job-apply {
+      margin-top: 4px;
+    }
+
+    .job-apply a {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Province section */
+    .province-block {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      font-size: 0.9rem;
+    }
+
+    .province-block h3 {
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+    }
+
+    .province-block ul {
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .province-block ul li + li {
+      margin-top: 3px;
+    }
+
+    /* Departments */
+    .dept-tag {
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 8px 10px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #ddd;
+      margin-top: 24px;
+    }
+
+    .footer-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 16px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+    }
+
+    .footer-copy {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="top-bar">
+      <div class="logo">PakNoukri</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Punjab</a></li>
+          <li><a href="#">Sindh</a></li>
+          <li><a href="#">KPK</a></li>
+          <li><a href="#">Balochistan</a></li>
+          <li><a href="#">Federal</a></li>
+          <li><a href="#">PPSC</a></li>
+          <li><a href="#">FPSC</a></li>
+          <li><a href="#">Police</a></li>
+          <li><a href="#">Forces</a></li>
+          <li><a href="#">Health</a></li>
+          <li><a href="#">Education</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="search-bar">
+      <div class="search-inner">
+        <input type="text" placeholder="Search government jobs in Pakistan..." />
+        <button type="button">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>Today Government Jobs in Pakistan</h1>
+      <p>
+        Find all new jobs from PPSC, FPSC, NTS, Army, Police, WAPDA, Health and Education in one place.
+        PakNoukri shares daily updates in simple format so you can apply fast.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Latest Govt Jobs</button>
+        <button class="btn-outline">Online Apply Guide</button>
+      </div>
+    </section>
+
+    <!-- FEATURED CATEGORIES -->
+    <section>
+      <h2 class="section-title">Featured Government Job Categories</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>PPSC Latest Jobs</h3>
+          <ul>
+            <li><a href="#">PPSC Lecturer Jobs 2025</a></li>
+            <li><a href="#">PPSC Health Department Jobs</a></li>
+            <li><a href="#">PPSC Assistant Jobs</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>FPSC Latest Jobs</h3>
+          <ul>
+            <li><a href="#">FPSC Inspector Jobs 2025</a></li>
+            <li><a href="#">FPSC Assistant Director Jobs</a></li>
+            <li><a href="#">FPSC Teaching Jobs</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Army and Forces Jobs</h3>
+          <ul>
+            <li><a href="#">Pak Army Soldier Jobs</a></li>
+            <li><a href="#">Pak Navy PN Cadet Jobs</a></li>
+            <li><a href="#">PAF Airmen Jobs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="card">
+          <h3>WAPDA and Power Jobs</h3>
+          <ul>
+            <li><a href="#">WAPDA Technical Jobs</a></li>
+            <li><a href="#">LESCO Jobs 2025</a></li>
+            <li><a href="#">FESCO Jobs</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Police Jobs</h3>
+          <ul>
+            <li><a href="#">Punjab Police Constable Jobs</a></li>
+            <li><a href="#">Sindh Police ASI Jobs</a></li>
+            <li><a href="#">KPK Police Jobs</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Health Department Jobs</h3>
+          <ul>
+            <li><a href="#">Doctor Jobs in Govt Hospitals</a></li>
+            <li><a href="#">Nursing Jobs in Punjab</a></li>
+            <li><a href="#">Paramedic Jobs</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST JOBS LIST -->
+    <section>
+      <h2 class="section-title">Latest Government Jobs in Pakistan</h2>
+      <div class="latest-jobs">
+        <div class="job-item">
+          <div class="job-title">
+            Punjab Public Service Commission PPSC Lahore Jobs 2025
+          </div>
+          <div class="job-meta">
+            Department: PPSC | Location: Punjab | Date: 21 Nov 2025
+          </div>
+          <div class="job-apply">
+            <a href="#">View Details and Apply</a>
+          </div>
+        </div>
+
+        <div class="job-item">
+          <div class="job-title">
+            Latest Mines and Minerals Department Human Resource Posts Peshawar 2025
+          </div>
+          <div class="job-meta">
+            Department: Mines and Minerals KPK | Location: Peshawar | Date: 20 Nov 2025
+          </div>
+          <div class="job-apply">
+            <a href="#">View Details and Apply</a>
+          </div>
+        </div>
+
+        <div class="job-item">
+          <div class="job-title">
+            Lift Operator Job at Bahria University Karachi Campus 2025
+          </div>
+          <div class="job-meta">
+            Department: Bahria University | Location: Karachi | Date: 18 Nov 2025
+          </div>
+          <div class="job-apply">
+            <a href="#">View Details and Apply</a>
+          </div>
+        </div>
+
+        <!-- مزید جابز بعد میں add کر سکتے ہیں -->
+      </div>
+    </section>
+
+    <!-- JOBS BY PROVINCE -->
+    <section>
+      <h2 class="section-title">Jobs by Province</h2>
+      <div class="grid-4">
+        <div class="province-block">
+          <h3>Punjab Govt Jobs</h3>
+          <ul>
+            <li><a href="#">Punjab Govt Jobs Today</a></li>
+            <li><a href="#">PPSC Latest Jobs</a></li>
+            <li><a href="#">Punjab Police Jobs</a></li>
+            <li><a href="#">Punjab Health Department Jobs</a></li>
+          </ul>
+        </div>
+
+        <div class="province-block">
+          <h3>Sindh Govt Jobs</h3>
+          <ul>
+            <li><a href="#">Sindh Govt Jobs Today</a></li>
+            <li><a href="#">SPSC Jobs</a></li>
+            <li><a href="#">Karachi Govt Jobs</a></li>
+            <li><a href="#">Sindh Police Jobs</a></li>
+          </ul>
+        </div>
+
+        <div class="province-block">
+          <h3>KPK Govt Jobs</h3>
+          <ul>
+            <li><a href="#">KPK Govt Jobs 2025</a></li>
+            <li><a href="#">ETEA Jobs</a></li>
+            <li><a href="#">KPK Police Jobs</a></li>
+            <li><a href="#">Rescue 1122 Jobs</a></li>
+          </ul>
+        </div>
+
+        <div class="province-block">
+          <h3>Balochistan Govt Jobs</h3>
+          <ul>
+            <li><a href="#">Balochistan Govt Jobs</a></li>
+            <li><a href="#">BPSC Jobs</a></li>
+            <li><a href="#">Health Jobs Balochistan</a></li>
+            <li><a href="#">Education Jobs Balochistan</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOVERNMENT DEPARTMENTS -->
+    <section>
+      <h2 class="section-title">Government Departments</h2>
+      <div class="grid-4">
+        <div class="dept-tag">PPSC Jobs</div>
+        <div class="dept-tag">FPSC Jobs</div>
+        <div class="dept-tag">NTS Jobs</div>
+        <div class="dept-tag">WAPDA Jobs</div>
+        <div class="dept-tag">FBR Jobs</div>
+        <div class="dept-tag">NADRA Jobs</div>
+        <div class="dept-tag">Pak Army Jobs</div>
+        <div class="dept-tag">Pak Navy Jobs</div>
+        <div class="dept-tag">PAF Jobs</div>
+        <div class="dept-tag">Police Jobs</div>
+        <div class="dept-tag">Health Department Jobs</div>
+        <div class="dept-tag">Education Jobs</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p>
+        PakNoukri is a job portal that shares daily government jobs from all over Pakistan.
+        You can find PPSC, FPSC, NTS, Army, Police, WAPDA, Health and Education jobs in simple format with apply details.
+      </p>
+
+      <div class="footer-links">
+        <a href="#">Punjab Govt Jobs</a>
+        <a href="#">Sindh Govt Jobs</a>
+        <a href="#">KPK Govt Jobs</a>
+        <a href="#">Federal Govt Jobs</a>
+        <a href="#">Army Jobs</a>
+        <a href="#">PPSC Jobs</a>
+        <a href="#">FPSC Jobs</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-copy">
+        © 2025 PakNoukri. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
